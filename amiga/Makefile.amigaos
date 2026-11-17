@@ -1,0 +1,55 @@
+# Pacman3D for GFOS: 68040, libnix, soft float, Allegro 4 from gfopenallegro
+# (allegro4.library on acgame.library, both in the drawer's Libs/).
+#   make -f amiga/Makefile.amigaos PREFIX=<stove>/prefix A4=<gfopenallegro/allegro4> A4OUT=.. ACGOUT=..
+PREFIX ?= $(HOME)/AmiCradle/kitchen/stoves/os32-gcc16-open6/prefix
+A4 ?= ../gfopenallegro/allegro4
+A4OUT ?= $(A4)/build-amiga
+ACGOUT ?= ../acgame/build-amiga
+CC = $(PREFIX)/bin/m68k-amigaos-gcc
+STRIP = $(PREFIX)/bin/m68k-amigaos-strip
+NAME = Pacman3D
+# upstream has a file called build, so the build goes to out/
+BUILD ?= out/amigaos
+DIR = $(BUILD)/$(NAME)
+
+OBJS = $(BUILD)/obj/pacman.o $(BUILD)/obj/pac_ext.o $(BUILD)/obj/amiga_start.o
+SOFT = -specs=$(A4)/specs/m68k-soft-m68040.specs
+CFLAGS = -noixemul -m68040 $(SOFT) -O2 -fomit-frame-pointer -fno-tree-loop-distribute-patterns \
+	-fcommon -w -I. -I$(A4)/include
+LIBS = $(A4OUT)/liballeg.a -lm
+
+all: $(DIR)/$(NAME) package
+
+$(BUILD)/obj/%.o: %.c pac.h data/pacdata.h data/enem.h
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BUILD)/obj/amiga_start.o: amiga/amiga_start.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BUILD)/$(NAME).debug: $(OBJS)
+	$(CC) -noixemul -m68040 $(SOFT) -o $@ $(OBJS) $(LIBS)
+
+$(DIR)/$(NAME): $(BUILD)/$(NAME).debug
+	@mkdir -p $(DIR)
+	$(STRIP) -o $@ $<
+
+# The drawer: the game, data/ (datafiles and the 12 levels), pacman.ini,
+# Libs/, the read-mes and the icons. hiscore.dat and save.dat are made
+# by the game.
+package: $(DIR)/$(NAME)
+	mkdir -p $(DIR)/Libs $(DIR)/data
+	cp data/*.dat data/*.pac $(DIR)/data/
+	cp pacman.ini $(DIR)/
+	cp $(A4OUT)/allegro4.library $(ACGOUT)/acgame.library $(DIR)/Libs/
+	cp amiga/AMIGA_PORT.md $(DIR)/ReadMe
+	cp pacsrc.txt $(DIR)/ReadMe-Pacman3D
+	cp amiga/icons/$(NAME).info amiga/icons/ReadMe.info $(DIR)/
+	cp amiga/icons/ReadMe.info $(DIR)/ReadMe-Pacman3D.info
+	cp amiga/icons/$(NAME)-drawer.info $(BUILD)/$(NAME).info
+	cp amiga/Install-$(NAME) amiga/Install-$(NAME).info $(BUILD)/
+
+clean:
+	rm -rf $(BUILD)
+.PHONY: all package clean

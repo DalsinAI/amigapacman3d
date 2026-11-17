@@ -1,0 +1,18 @@
+{
+  "name": "Pacman3D",
+  "version": "1.4-gfos1",
+  "drawer": "Pacman3D",
+  "program": "Pacman3D",
+  "cpu": "68040",
+  "fpu": false,
+  "space": 1500000,
+  "modules": [],
+  "keep": [
+    "pacman.ini",
+    "hiscore.dat",
+    "save.dat"
+  ],
+  "parent": "Work:Games",
+  "badge": "icons/art/pacman3d.png",
+  "script": "Install-Pacman3D"
+}
