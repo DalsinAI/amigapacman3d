@@ -1,0 +1,34 @@
+# Makefile for pacman
+
+CC = gcc
+RC = windres
+
+OBJ = pacman.o pac_ext.o pac_win.o pacres_res.o
+BIN = pacman.exe
+
+INCS = 
+LIBS = 
+
+PCFLAGS = 
+CFLAGS  = $(INCS) -W -Wall
+LDFLAGS = $(LIBS) -lalleg -W -Wall -mwindows
+
+$(BIN): $(OBJ)
+	$(CC) $(OBJ) -o $(BIN) $(LDFLAGS)
+
+pacman.o: pacman.c pac.h data/pacdata.h data/enem.h
+	$(CC) $(PCFLAGS) $(CFLAGS) -c pacman.c -o pacman.o
+
+pac_ext.o: pac_ext.c data/enem.h
+	$(CC) $(PCFLAGS) $(CFLAGS) -c pac_ext.c -o pac_ext.o
+
+pac_win.o: pac_win.c 
+	$(CC) $(PCFLAGS) $(CFLAGS) -c pac_win.c -o pac_win.o
+
+pacres_res.o: pacres.rc
+	windres -i pacres.rc -I rc -o pacres_res.o -O coff
+
+.PHONY: clean
+clean: 
+	-rm $(BIN) $(OBJ)
+

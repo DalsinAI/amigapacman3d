@@ -1,0 +1,134 @@
+[Relo Project 0.9]
+22
+C20030701114644 0C:\GameDev\PACMaN\pacman.c
+H19991107034140I0stdio.h
+H19991107034140I0stdlib.h
+H19991107034140I0memory.h
+H19991107034142I0time.h
+H19991107034140I0string.h
+H20030627115026L0C:\GameDev\PACMaN\pac.h
+C20030630230733 0C:\GameDev\PACMaN\pac_ext.c
+H19991107034140I0stdio.h
+H19991107034138I0math.h
+H19991107034140I0string.h
+H20011202003200I0allegro.h
+-20020210135049D0C:\GameDev\PACMaN\pacman.htm
+R20021228225722X0C:\GameDev\PACMaN\pacres.rc
+C20030627114937 0C:\GameDev\PACMaN\pac_win.c
+O20030617220816 0C:\GameDev\PACMaN\pacres_res.o
+H20000720184614I0conio.h
+H19991107034142I0unistd.h
+H20011202003200I0allegro.h
+H20010120205342L0C:\GameDev\PACMaN\data\enem.h
+H20010211184926L0C:\GameDev\PACMaN\data\pacdata.h
+H20010211184926L0C:\GameDev\PACMaN\data/pacdata.h
+-1
+0
+0
+0
+0
+0
+0
+-1
+7
+7
+7
+7
+-1
+-1
+-1
+-1
+0
+7
+0
+7
+0
+7
+[Relative Filenames]
+RelativeFileName=0,pacman.c
+RelativeFileName=6,pac.h
+RelativeFileName=7,pac_ext.c
+RelativeFileName=13,pacres.rc
+RelativeFileName=14,pac_win.c
+RelativeFileName=15,pacres_res.o
+RelativeFileName=19,data\enem.h
+RelativeFileName=20,data\pacdata.h
+RelativeFileName=21,data/pacdata.h
+[Include Paths]
+[Library Paths]
+[Options]
+Output=pacman.exe
+Libraries=alleg
+ApplicationType=windows
+WindowsApp=yes
+ForceCppCompile=no
+ExcludeCppLib=no
+TurnOffWarnings=no
+ExtraCompileSwitches=
+ExtraLinkSwitches=
+ExtraLinkSwitches=
+OverrideTabSize=3
+CreateImportLibrary=yes
+CreateDefFile=yes
+DefFileName=
+NormalBuild=yes
+RunMake=no
+PreBuild=no
+PreBuildCmd=
+PostBuild=no
+PostBuildCmd=
+PMHeadersExpand=yes
+PMResExpand=no
+PMDocExpand=yes
+PMMiscExpand=yes
+[Open Files]
+OpenFile=1,1,1,1,0,228,0,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pacman.c
+OpenFile=1,1,1,1,0,1024,963,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pac_ext.c
+OpenFile=1,1,1,1,0,0,0,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pac.h
+OpenFile=1,1,1,1,0,0,0,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pac_win.c
+CurrentOpenFile=C:\GameDev\PACMaN\pacman.c
+[Closed Files]
+ClosedFile=1,2,1,1,0,0,0,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pacres.rc
+ClosedFile=1,1,1,1,0,0,0,0,0,0,0,0,0,0,C:\Cygwin\blackbox-0.65.0\src\blackbox.cc
+ClosedFile=1,1,1,1,0,0,0,0,0,0,0,0,0,0,C:\Cygwin\blackbox-0.65.0\LICENSE
+ClosedFile=1,143,106,1,0,0,0,0,0,0,0,0,0,0,C:\GameDev\PACMaN\pacman.htm
+[Windows]
+ProjManDocked=yes
+ProjManVisible=yes
+ProjManPos=0,104,173,611
+ProjManPage=0
+ProjManAlignLeft=yes
+Toolbar=yes
+CompilerOutput=no
+CodeWndState=2
+CodeWndPos=0,0,0,0
+[Code Hints]
+CodeHintFile=ansi_c.hint
+CodeHintFile=nonstd_c.hint
+CodeHintFile=allegro.hint
+[Run Parameters]
+CurrentParams=cheat video-width 800 video-height 600 volume 100
+RunParam=windowed width 640 height 480
+RunParam=windowed width 640 height 480 volume 50
+RunParam=fullscreen width 640 height 480 volume 50
+RunParam=width 640 height 480 volume 50
+RunParam=windowed video_width 640 video_height 480 volume 50
+RunParam=video_width 640 video_height 480 volume 50
+RunParam=windowed volume 50
+RunParam=--fullscreen
+RunParam=fullscreen video_width 1024 video_height 768
+RunParam=fullscreen video_width 800 video_height 600
+RunParam=fullscreen video_width 640 video_height 480
+RunParam=cheat
+RunParam=vid_width 10
+RunParam=video_width 10
+RunParam=video_width 640
+RunParam=video_width 640 video_height 480
+RunParam=windowed
+RunParam=windowed video_width 640 video_height 480
+RunParam=cheat windowed video_width 640 video_height 480
+RunParam=cheat windowed video-width 640 video-height 480
+RunParam=notimer
+RunParam=cheat video-width 640 video-height 480
+RunParam=cheat video-width 800 video-height 600 volume 100
+RunWorkDir=

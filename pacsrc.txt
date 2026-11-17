@@ -1,0 +1,100 @@
+                                      ____  _____
+    _______                          |__  \|  __ \
+   |       \    fifsoft presents..    __|  | |  \ |   ______ ______ ______
+   |   _    |                        |__   | |  | |  |      |   _  |      |
+   |  | |   |                         __|  | |__/ |  |  ____|  | | |   ___|
+   |  |_|   |___  _____ _    ___ ____|____/|_____/_  | |____|  |_| |  |
+   |    ___/_   \/  ___| \  /   |   _   \|   \ |   | |____  |    __|  |
+   |   |   |_|   | / |    \/    |  |_|   |    \|   |  ____| |    \ |  |___
+   |   |    _    | \_|_         |   _    |   |\    | |      |  |  \|      |
+   |___|___| |___|_____|_|\/|___|__| |___|___| \___| |______|__|\__|______|
+
+    ----------------------------------------------------------------------
+    ----------------------------------------------------------------------
+
+                               the source code
+
+ LICENSE
+ =======
+
+ Copyright (c) 2000-2003 Andrew Pike
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to 
+ deal in the Software without restriction, including without limitation the 
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
+ sell copies of the Software, and to permit persons to whom the Software is 
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in 
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+ IN THE SOFTWARE.
+
+
+ REQUIRED FILES
+ ==============
+ Source:
+  + PACMAN.C
+  + PAC_EXT.C
+  + PAC_WIN.C           (Windows only)
+  + PACRES.RC           (Windows only)
+  + PAC.H
+ Data:
+  + PAC.ICO             (Windows only)
+  + DATA\BG.DAT         Map tiles
+  + DATA\ENEM.DAT       Enemy sprites
+  + DATA\ENEM.H         Enem.dat header
+  + DATA\FL.DAT         Floor tiles (only 1 at present)
+  + DATA\MWF.DAT        The font
+  + DATA\OBJ.DAT        Object sprites
+  + DATA\PACDATA.DAT    Contains all other sprites, titles, samples etc
+  + DATA\PACDATA.H      Pacdata.dat header
+  + DATA\TITLES.DAT     Title screens and palettes for each level
+ Levels:
+  + DATA\LEV1.PAC
+  + DATA\LEV2.PAC
+  + DATA\LEV3.PAC
+  + DATA\LEV4.PAC
+  + DATA\LEV5.PAC
+  + DATA\LEV6.PAC
+  + DATA\LEV7.PAC
+  + DATA\LEV8.PAC
+  + DATA\LEV9.PAC
+  + DATA\LEV10.PAC
+  + DATA\LEV11.PAC
+  + DATA\LEV12.PAC
+
+
+ BUILD
+ =====
+
+ Unix: 
+
+ gcc pacman.c pac_ext.c -o pacman -W -Wall `allegro-config --libs --static`
+
+ Windows:
+
+ gcc -c pacman.c -o pacman.o -W -Wall -mwindows
+ gcc -c pac_ext.c -o pac_ext.o -W -Wall -mwindows
+ gcc -c pac_win.c -o pac_win.o -W -Wall -mwindows
+ windres -i pacres.rc -I rc -o pacres_res.o -O coff
+ gcc -o pacman.exe pacman.o pac_ext.o pac_win.o pacres_res.o -lalleg -W -Wall -mwindows 
+
+ The code can also be built with using make ('Makefile' on Unix, 'Makefile.win' on Windows).
+ (On Windows: make -f makefile.win)
+ The Allegro games library (alleg.sf.net) is required to compile the code.
+
+
+ CRED
+ ====
+
+ Copyright (c) 2000-2003 Andrew Pike
+ games@fifsoft.com
+ www.fifsoft.com/pacman

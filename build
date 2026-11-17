@@ -1,0 +1,2 @@
+#!/bin/sh
+gcc pacman.c pac_ext.c -o pacman -W -Wall `allegro-config --libs`
