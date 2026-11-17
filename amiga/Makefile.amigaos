@@ -8,7 +8,8 @@ ACGOUT ?= ../acgame/build-amiga
 CC = $(PREFIX)/bin/m68k-amigaos-gcc
 STRIP = $(PREFIX)/bin/m68k-amigaos-strip
 NAME = Pacman3D
-BUILD ?= build/amigaos
+# upstream has a file called build, so the build goes to out/
+BUILD ?= out/amigaos
 DIR = $(BUILD)/$(NAME)
 
 OBJS = $(BUILD)/obj/pacman.o $(BUILD)/obj/pac_ext.o $(BUILD)/obj/amiga_start.o
